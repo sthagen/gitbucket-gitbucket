@@ -3,7 +3,7 @@ import com.jsuereth.sbtpgp.PgpKeys._
 
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
-val GitBucketVersion = "4.36.2"
+val GitBucketVersion = "4.37.0"
 val ScalatraVersion = "2.8.2"
 val JettyVersion = "9.4.44.v20210927"
 val JgitVersion = "5.13.0.202109080827-r"
@@ -42,7 +42,7 @@ libraryDependencies ++= Seq(
   "org.apache.commons"              % "commons-email"                % "1.5",
   "commons-net"                     % "commons-net"                  % "3.8.0",
   "org.apache.httpcomponents"       % "httpclient"                   % "4.5.13",
-  "org.apache.sshd"                 % "apache-sshd"                  % "2.1.0" exclude ("org.slf4j", "slf4j-jdk14") exclude ("org.apache.sshd", "sshd-mina") exclude ("org.apache.sshd", "sshd-netty"),
+  "org.apache.sshd"                 % "apache-sshd"                  % "2.8.0" exclude ("org.slf4j", "slf4j-jdk14") exclude ("org.apache.sshd", "sshd-mina") exclude ("org.apache.sshd", "sshd-netty"),
   "org.apache.tika"                 % "tika-core"                    % "2.1.0",
   "com.github.takezoe"              %% "blocking-slick-32"           % "0.0.12" cross CrossVersion.for3Use2_13,
   "com.novell.ldap"                 % "jldap"                        % "2009-10-07",
@@ -55,9 +55,9 @@ libraryDependencies ++= Seq(
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"                  % "1.1.0",
   "io.github.java-diff-utils"       % "java-diff-utils"              % "4.11",
   "org.cache2k"                     % "cache2k-all"                  % "1.6.0.Final",
-  "net.coobird"                     % "thumbnailator"                % "0.4.14",
+  "net.coobird"                     % "thumbnailator"                % "0.4.15",
   "com.github.zafarkhaja"           % "java-semver"                  % "0.9.0",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "9.19",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "9.20",
   "org.eclipse.jetty"               % "jetty-webapp"                 % JettyVersion % "provided",
   "javax.servlet"                   % "javax.servlet-api"            % "3.1.0" % "provided",
   "junit"                           % "junit"                        % "4.13.2" % "test",
@@ -69,7 +69,7 @@ libraryDependencies ++= Seq(
   "net.i2p.crypto"                  % "eddsa"                        % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"                 % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                    % "0.3.0",
-  "org.kohsuke"                     % "github-api"                   % "1.300" % "test"
+  "org.kohsuke"                     % "github-api"                   % "1.301" % "test"
 )
 
 libraryDependencies ~= {
