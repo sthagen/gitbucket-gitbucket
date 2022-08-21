@@ -47,7 +47,7 @@ libraryDependencies ++= Seq(
   "com.novell.ldap"                 % "jldap"                        % "2009-10-07",
   "com.h2database"                  % "h2"                           % "1.4.199",
   "org.mariadb.jdbc"                % "mariadb-java-client"          % "3.0.7",
-  "org.postgresql"                  % "postgresql"                   % "42.4.1",
+  "org.postgresql"                  % "postgresql"                   % "42.4.2",
   "ch.qos.logback"                  % "logback-classic"              % "1.2.11",
   "com.zaxxer"                      % "HikariCP"                     % "4.0.3" exclude ("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                       % "1.4.2",
@@ -68,7 +68,7 @@ libraryDependencies ++= Seq(
   "net.i2p.crypto"                  % "eddsa"                        % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"                 % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                    % "0.3.0",
-  "org.kohsuke"                     % "github-api"                   % "1.307" % "test"
+  "org.kohsuke"                     % "github-api"                   % "1.308" % "test"
 )
 
 libraryDependencies ~= {
