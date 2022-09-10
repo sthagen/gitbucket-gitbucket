@@ -3,7 +3,7 @@ import com.jsuereth.sbtpgp.PgpKeys._
 
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
-val GitBucketVersion = "4.37.2"
+val GitBucketVersion = "4.38.1"
 val ScalatraVersion = "2.8.2"
 val JettyVersion = "9.4.48.v20220622"
 val JgitVersion = "5.13.1.202206130422-r"
@@ -36,12 +36,12 @@ libraryDependencies ++= Seq(
   "org.json4s"                      %% "json4s-jackson"              % "4.0.5" cross CrossVersion.for3Use2_13,
   "commons-io"                      % "commons-io"                   % "2.11.0",
   "io.github.gitbucket"             % "solidbase"                    % "1.0.5",
-  "io.github.gitbucket"             % "markedj"                      % "1.0.16",
+  "io.github.gitbucket"             % "markedj"                      % "1.0.17",
   "org.apache.commons"              % "commons-compress"             % "1.21",
   "org.apache.commons"              % "commons-email"                % "1.5",
   "commons-net"                     % "commons-net"                  % "3.8.0",
   "org.apache.httpcomponents"       % "httpclient"                   % "4.5.13",
-  "org.apache.sshd"                 % "apache-sshd"                  % "2.9.0" exclude ("org.slf4j", "slf4j-jdk14") exclude ("org.apache.sshd", "sshd-mina") exclude ("org.apache.sshd", "sshd-netty"),
+  "org.apache.sshd"                 % "apache-sshd"                  % "2.9.1" exclude ("org.slf4j", "slf4j-jdk14") exclude ("org.apache.sshd", "sshd-mina") exclude ("org.apache.sshd", "sshd-netty"),
   "org.apache.tika"                 % "tika-core"                    % "2.4.1",
   "com.github.takezoe"              %% "blocking-slick-32"           % "0.0.12" cross CrossVersion.for3Use2_13,
   "com.novell.ldap"                 % "jldap"                        % "2009-10-07",
@@ -56,12 +56,12 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"                  % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"                % "0.4.17",
   "com.github.zafarkhaja"           % "java-semver"                  % "0.9.0",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "9.41.1",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "9.43.1",
   "org.eclipse.jetty"               % "jetty-webapp"                 % JettyVersion % "provided",
   "javax.servlet"                   % "javax.servlet-api"            % "3.1.0" % "provided",
   "junit"                           % "junit"                        % "4.13.2" % "test",
   "org.scalatra"                    %% "scalatra-scalatest"          % ScalatraVersion % "test" cross CrossVersion.for3Use2_13,
-  "org.mockito"                     % "mockito-core"                 % "4.7.0" % "test",
+  "org.mockito"                     % "mockito-core"                 % "4.8.0" % "test",
   "com.dimafeng"                    %% "testcontainers-scala"        % "0.40.10" % "test",
   "org.testcontainers"              % "mysql"                        % "1.17.3" % "test",
   "org.testcontainers"              % "postgresql"                   % "1.17.3" % "test",
