@@ -3,7 +3,7 @@ import com.jsuereth.sbtpgp.PgpKeys._
 
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
-val GitBucketVersion = "4.38.2"
+val GitBucketVersion = "4.38.4"
 val ScalatraVersion = "2.8.4"
 val JettyVersion = "9.4.49.v20220914"
 val JgitVersion = "5.13.1.202206130422-r"
@@ -37,16 +37,16 @@ libraryDependencies ++= Seq(
   "commons-io"                      % "commons-io"                   % "2.11.0",
   "io.github.gitbucket"             % "solidbase"                    % "1.0.5",
   "io.github.gitbucket"             % "markedj"                      % "1.0.17",
-  "org.apache.commons"              % "commons-compress"             % "1.21",
+  "org.apache.commons"              % "commons-compress"             % "1.22",
   "org.apache.commons"              % "commons-email"                % "1.5",
   "commons-net"                     % "commons-net"                  % "3.8.0",
   "org.apache.httpcomponents"       % "httpclient"                   % "4.5.13",
   "org.apache.sshd"                 % "apache-sshd"                  % "2.9.1" exclude ("org.slf4j", "slf4j-jdk14") exclude ("org.apache.sshd", "sshd-mina") exclude ("org.apache.sshd", "sshd-netty"),
-  "org.apache.tika"                 % "tika-core"                    % "2.5.0",
+  "org.apache.tika"                 % "tika-core"                    % "2.6.0",
   "com.github.takezoe"              %% "blocking-slick-32"           % "0.0.12" cross CrossVersion.for3Use2_13,
   "com.novell.ldap"                 % "jldap"                        % "2009-10-07",
   "com.h2database"                  % "h2"                           % "1.4.199",
-  "org.mariadb.jdbc"                % "mariadb-java-client"          % "3.0.8",
+  "org.mariadb.jdbc"                % "mariadb-java-client"          % "2.7.6",
   "org.postgresql"                  % "postgresql"                   % "42.5.0",
   "ch.qos.logback"                  % "logback-classic"              % "1.2.11",
   "com.zaxxer"                      % "HikariCP"                     % "4.0.3" exclude ("org.slf4j", "slf4j-api"),
