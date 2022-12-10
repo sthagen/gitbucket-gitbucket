@@ -5,7 +5,7 @@ val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
 val GitBucketVersion = "4.38.4"
 val ScalatraVersion = "2.8.4"
-val JettyVersion = "9.4.49.v20220914"
+val JettyVersion = "9.4.50.v20221201"
 val JgitVersion = "5.13.1.202206130422-r"
 
 lazy val root = (project in file("."))
@@ -39,8 +39,8 @@ libraryDependencies ++= Seq(
   "io.github.gitbucket"             % "markedj"                      % "1.0.17",
   "org.apache.commons"              % "commons-compress"             % "1.22",
   "org.apache.commons"              % "commons-email"                % "1.5",
-  "commons-net"                     % "commons-net"                  % "3.8.0",
-  "org.apache.httpcomponents"       % "httpclient"                   % "4.5.13",
+  "commons-net"                     % "commons-net"                  % "3.9.0",
+  "org.apache.httpcomponents"       % "httpclient"                   % "4.5.14",
   "org.apache.sshd"                 % "apache-sshd"                  % "2.9.2" exclude ("org.slf4j", "slf4j-jdk14") exclude ("org.apache.sshd", "sshd-mina") exclude ("org.apache.sshd", "sshd-netty"),
   "org.apache.tika"                 % "tika-core"                    % "2.6.0",
   "com.github.takezoe"              %% "blocking-slick-32"           % "0.0.12" cross CrossVersion.for3Use2_13,
@@ -56,13 +56,13 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"                  % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"                % "0.4.18",
   "com.github.zafarkhaja"           % "java-semver"                  % "0.9.0",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.1",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.3",
   "org.eclipse.jetty"               % "jetty-webapp"                 % JettyVersion % "provided",
   "javax.servlet"                   % "javax.servlet-api"            % "3.1.0" % "provided",
   "junit"                           % "junit"                        % "4.13.2" % "test",
   "org.scalatra"                    %% "scalatra-scalatest"          % ScalatraVersion % "test" cross CrossVersion.for3Use2_13,
   "org.mockito"                     % "mockito-core"                 % "4.9.0" % "test",
-  "com.dimafeng"                    %% "testcontainers-scala"        % "0.40.11" % "test",
+  "com.dimafeng"                    %% "testcontainers-scala"        % "0.40.12" % "test",
   "org.testcontainers"              % "mysql"                        % "1.17.6" % "test",
   "org.testcontainers"              % "postgresql"                   % "1.17.6" % "test",
   "net.i2p.crypto"                  % "eddsa"                        % "0.3.0",
