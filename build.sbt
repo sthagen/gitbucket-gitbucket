@@ -48,7 +48,7 @@ libraryDependencies ++= Seq(
   "com.h2database"                  % "h2"                           % "1.4.199",
   "org.mariadb.jdbc"                % "mariadb-java-client"          % "2.7.6",
   "org.postgresql"                  % "postgresql"                   % "42.5.1",
-  "ch.qos.logback"                  % "logback-classic"              % "1.2.11",
+  "ch.qos.logback"                  % "logback-classic"              % "1.3.5",
   "com.zaxxer"                      % "HikariCP"                     % "4.0.3" exclude ("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                       % "1.4.2",
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"                  % "1.1.0",
@@ -56,12 +56,12 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"                  % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"                % "0.4.18",
   "com.github.zafarkhaja"           % "java-semver"                  % "0.9.0",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.3",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.4",
   "org.eclipse.jetty"               % "jetty-webapp"                 % JettyVersion % "provided",
   "javax.servlet"                   % "javax.servlet-api"            % "3.1.0" % "provided",
   "junit"                           % "junit"                        % "4.13.2" % "test",
   "org.scalatra"                    %% "scalatra-scalatest"          % ScalatraVersion % "test" cross CrossVersion.for3Use2_13,
-  "org.mockito"                     % "mockito-core"                 % "4.9.0" % "test",
+  "org.mockito"                     % "mockito-core"                 % "4.10.0" % "test",
   "com.dimafeng"                    %% "testcontainers-scala"        % "0.40.12" % "test",
   "org.testcontainers"              % "mysql"                        % "1.17.6" % "test",
   "org.testcontainers"              % "postgresql"                   % "1.17.6" % "test",
@@ -90,7 +90,6 @@ scalacOptions := Seq(
   "-Wconf:cat=unused&src=twirl/.*:s,cat=unused&src=scala/gitbucket/core/model/[^/]+\\.scala:s"
 )
 compile / javacOptions ++= Seq("-target", "8", "-source", "8")
-Jetty / javaOptions += "-Dlogback.configurationFile=/logback-dev.xml"
 
 // Test settings
 //testOptions in Test += Tests.Argument("-l", "ExternalDBTest")
@@ -286,7 +285,9 @@ Test / testOptions ++= {
 }
 
 Jetty / javaOptions ++= Seq(
+  "-Dlogback.configurationFile=/logback-dev.xml",
   "-Xdebug",
   "-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000",
-  "-Dorg.eclipse.jetty.annotations.AnnotationParser.LEVEL=OFF"
+  "-Dorg.eclipse.jetty.annotations.AnnotationParser.LEVEL=OFF",
+  //"-Ddev-features=keep-session"
 )
