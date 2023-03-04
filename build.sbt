@@ -5,7 +5,7 @@ val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
 val GitBucketVersion = "4.38.4"
 val ScalatraVersion = "2.8.4"
-val JettyVersion = "9.4.50.v20221201"
+val JettyVersion = "9.4.51.v20230217"
 val JgitVersion = "5.13.1.202206130422-r"
 
 lazy val root = (project in file("."))
@@ -68,7 +68,7 @@ libraryDependencies ++= Seq(
   "net.i2p.crypto"                  % "eddsa"                        % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"                 % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                    % "0.3.0",
-  "org.kohsuke"                     % "github-api"                   % "1.313" % "test"
+  "org.kohsuke"                     % "github-api"                   % "1.314" % "test"
 )
 
 libraryDependencies ~= {
