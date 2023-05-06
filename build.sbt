@@ -3,10 +3,10 @@ import com.jsuereth.sbtpgp.PgpKeys._
 
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
-val GitBucketVersion = "4.39.0"
+val GitBucketVersion = "4.40.0-SNAPSHOT"
 val ScalatraVersion = "3.0.0-M3"
-val JettyVersion = "10.0.12"
-val JgitVersion = "5.13.1.202206130422-r"
+val JettyVersion = "10.0.15"
+val JgitVersion = "6.5.0.202303070854-r"
 
 lazy val root = (project in file("."))
   .enablePlugins(SbtTwirl, ScalatraPlugin)
@@ -16,6 +16,17 @@ organization := Organization
 name := Name
 version := GitBucketVersion
 scalaVersion := "2.13.10"
+
+crossScalaVersions += "3.2.2"
+
+conflictWarning := {
+  if (scalaBinaryVersion.value == "3") {
+    // TODO remove this workaround
+    ConflictWarning("warn", Level.Warn, false)
+  } else {
+    conflictWarning.value
+  }
+}
 
 // scalafmtOnCompile := true
 
@@ -30,10 +41,10 @@ resolvers ++= Seq(
 libraryDependencies ++= Seq(
   "org.eclipse.jgit"                % "org.eclipse.jgit.http.server" % JgitVersion,
   "org.eclipse.jgit"                % "org.eclipse.jgit.archive"     % JgitVersion,
-  "org.scalatra"                    %% "scalatra"                    % ScalatraVersion cross CrossVersion.for3Use2_13,
-  "org.scalatra"                    %% "scalatra-json"               % ScalatraVersion cross CrossVersion.for3Use2_13,
-  "org.scalatra"                    %% "scalatra-forms"              % ScalatraVersion cross CrossVersion.for3Use2_13,
-  "org.json4s"                      %% "json4s-jackson"              % "4.0.6" cross CrossVersion.for3Use2_13,
+  "org.scalatra"                    %% "scalatra"                    % ScalatraVersion,
+  "org.scalatra"                    %% "scalatra-json"               % ScalatraVersion,
+  "org.scalatra"                    %% "scalatra-forms"              % ScalatraVersion,
+  "org.json4s"                      %% "json4s-jackson"              % "4.0.6",
   "commons-io"                      % "commons-io"                   % "2.11.0",
   "io.github.gitbucket"             % "solidbase"                    % "1.0.5",
   "io.github.gitbucket"             % "markedj"                      % "1.0.17",
@@ -56,12 +67,12 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"                  % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"                % "0.4.19",
   "com.github.zafarkhaja"           % "java-semver"                  % "0.9.0",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.8",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.9",
   "org.eclipse.jetty"               % "jetty-webapp"                 % JettyVersion % "provided",
   "javax.servlet"                   % "javax.servlet-api"            % "3.1.0" % "provided",
   "junit"                           % "junit"                        % "4.13.2" % "test",
-  "org.scalatra"                    %% "scalatra-scalatest"          % ScalatraVersion % "test" cross CrossVersion.for3Use2_13,
-  "org.mockito"                     % "mockito-core"                 % "4.11.0" % "test",
+  "org.scalatra"                    %% "scalatra-scalatest"          % ScalatraVersion % "test",
+  "org.mockito"                     % "mockito-core"                 % "5.3.1" % "test",
   "com.dimafeng"                    %% "testcontainers-scala"        % "0.40.15" % "test",
   "org.testcontainers"              % "mysql"                        % "1.18.0" % "test",
   "org.testcontainers"              % "postgresql"                   % "1.18.0" % "test",
