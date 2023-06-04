@@ -15,7 +15,7 @@ sourcesInBase := false
 organization := Organization
 name := Name
 version := GitBucketVersion
-scalaVersion := "2.13.10"
+scalaVersion := "2.13.11"
 
 crossScalaVersions += "3.3.0"
 
@@ -74,12 +74,12 @@ libraryDependencies ++= Seq(
   "org.scalatra"                    %% "scalatra-scalatest"          % ScalatraVersion % "test",
   "org.mockito"                     % "mockito-core"                 % "5.3.1" % "test",
   "com.dimafeng"                    %% "testcontainers-scala"        % "0.40.16" % "test",
-  "org.testcontainers"              % "mysql"                        % "1.18.1" % "test",
-  "org.testcontainers"              % "postgresql"                   % "1.18.1" % "test",
+  "org.testcontainers"              % "mysql"                        % "1.18.3" % "test",
+  "org.testcontainers"              % "postgresql"                   % "1.18.3" % "test",
   "net.i2p.crypto"                  % "eddsa"                        % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"                 % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                    % "0.3.0",
-  "org.kohsuke"                     % "github-api"                   % "1.314" % "test"
+  "org.kohsuke"                     % "github-api"                   % "1.315" % "test"
 )
 
 libraryDependencies ~= {
