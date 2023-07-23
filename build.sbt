@@ -4,7 +4,7 @@ import com.jsuereth.sbtpgp.PgpKeys._
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
 val GitBucketVersion = "4.40.0-SNAPSHOT"
-val ScalatraVersion = "3.0.0-M4"
+val ScalatraVersion = "3.0.0-M5-javax"
 val JettyVersion = "10.0.15"
 val JgitVersion = "6.6.0.202305301015-r"
 
@@ -47,7 +47,7 @@ libraryDependencies ++= Seq(
   "org.json4s"                      %% "json4s-jackson"              % "4.0.6",
   "commons-io"                      % "commons-io"                   % "2.13.0",
   "io.github.gitbucket"             % "solidbase"                    % "1.0.5",
-  "io.github.gitbucket"             % "markedj"                      % "1.0.17",
+  "io.github.gitbucket"             % "markedj"                      % "1.0.18",
   "org.apache.commons"              % "commons-compress"             % "1.23.0",
   "org.apache.commons"              % "commons-email"                % "1.5",
   "commons-net"                     % "commons-net"                  % "3.9.0",
