@@ -5,8 +5,8 @@ val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
 val GitBucketVersion = "4.40.0-SNAPSHOT"
 val ScalatraVersion = "3.0.0-M5-javax"
-val JettyVersion = "10.0.15"
-val JgitVersion = "6.6.0.202305301015-r"
+val JettyVersion = "10.0.16"
+val JgitVersion = "6.6.1.202309021850-r"
 
 lazy val root = (project in file("."))
   .enablePlugins(SbtTwirl, ScalatraPlugin)
@@ -53,7 +53,7 @@ libraryDependencies ++= Seq(
   "commons-net"                     % "commons-net"                  % "3.9.0",
   "org.apache.httpcomponents"       % "httpclient"                   % "4.5.14",
   "org.apache.sshd"                 % "apache-sshd"                  % "2.10.0" exclude ("org.slf4j", "slf4j-jdk14") exclude ("org.apache.sshd", "sshd-mina") exclude ("org.apache.sshd", "sshd-netty"),
-  "org.apache.tika"                 % "tika-core"                    % "2.8.0",
+  "org.apache.tika"                 % "tika-core"                    % "2.9.0",
   "com.github.takezoe"              %% "blocking-slick"              % "0.0.14",
   "com.novell.ldap"                 % "jldap"                        % "2009-10-07",
   "com.h2database"                  % "h2"                           % "1.4.199",
@@ -67,19 +67,19 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"                  % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"                % "0.4.20",
   "com.github.zafarkhaja"           % "java-semver"                  % "0.9.0",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.13.2",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.14.2",
   "org.eclipse.jetty"               % "jetty-webapp"                 % JettyVersion % "provided",
   "javax.servlet"                   % "javax.servlet-api"            % "3.1.0" % "provided",
   "junit"                           % "junit"                        % "4.13.2" % "test",
   "org.scalatra"                    %% "scalatra-scalatest"          % ScalatraVersion % "test",
-  "org.mockito"                     % "mockito-core"                 % "5.4.0" % "test",
-  "com.dimafeng"                    %% "testcontainers-scala"        % "0.40.17" % "test",
-  "org.testcontainers"              % "mysql"                        % "1.18.3" % "test",
-  "org.testcontainers"              % "postgresql"                   % "1.18.3" % "test",
+  "org.mockito"                     % "mockito-core"                 % "5.5.0" % "test",
+  "com.dimafeng"                    %% "testcontainers-scala"        % "0.41.0" % "test",
+  "org.testcontainers"              % "mysql"                        % "1.19.0" % "test",
+  "org.testcontainers"              % "postgresql"                   % "1.19.0" % "test",
   "net.i2p.crypto"                  % "eddsa"                        % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"                 % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                    % "0.3.0",
-  "org.kohsuke"                     % "github-api"                   % "1.315" % "test"
+  "org.kohsuke"                     % "github-api"                   % "1.316" % "test"
 )
 
 libraryDependencies ~= {
