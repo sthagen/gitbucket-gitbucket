@@ -6,7 +6,7 @@ val Name = "gitbucket"
 val GitBucketVersion = "4.40.0-SNAPSHOT"
 val ScalatraVersion = "3.0.0-M5-javax"
 val JettyVersion = "10.0.16"
-val JgitVersion = "6.6.1.202309021850-r"
+val JgitVersion = "6.7.0.202309050840-r"
 
 lazy val root = (project in file("."))
   .enablePlugins(SbtTwirl, ScalatraPlugin)
@@ -15,9 +15,9 @@ sourcesInBase := false
 organization := Organization
 name := Name
 version := GitBucketVersion
-scalaVersion := "2.13.11"
+scalaVersion := "2.13.12"
 
-crossScalaVersions += "3.3.0"
+crossScalaVersions += "3.3.1"
 
 conflictWarning := {
   if (scalaBinaryVersion.value == "3") {
@@ -48,7 +48,7 @@ libraryDependencies ++= Seq(
   "commons-io"                      % "commons-io"                   % "2.13.0",
   "io.github.gitbucket"             % "solidbase"                    % "1.0.5",
   "io.github.gitbucket"             % "markedj"                      % "1.0.18",
-  "org.apache.commons"              % "commons-compress"             % "1.23.0",
+  "org.apache.commons"              % "commons-compress"             % "1.24.0",
   "org.apache.commons"              % "commons-email"                % "1.5",
   "commons-net"                     % "commons-net"                  % "3.9.0",
   "org.apache.httpcomponents"       % "httpclient"                   % "4.5.14",
@@ -67,7 +67,7 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"                  % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"                % "0.4.20",
   "com.github.zafarkhaja"           % "java-semver"                  % "0.9.0",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.14.2",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "10.15",
   "org.eclipse.jetty"               % "jetty-webapp"                 % JettyVersion % "provided",
   "javax.servlet"                   % "javax.servlet-api"            % "3.1.0" % "provided",
   "junit"                           % "junit"                        % "4.13.2" % "test",
@@ -100,6 +100,14 @@ scalacOptions := Seq(
   "-Wunused:imports",
   "-Wconf:cat=unused&src=twirl/.*:s,cat=unused&src=scala/gitbucket/core/model/[^/]+\\.scala:s"
 )
+scalacOptions ++= {
+  scalaBinaryVersion.value match {
+    case "2.13" =>
+      Seq("-Xsource:3")
+    case _ =>
+      Nil
+  }
+}
 compile / javacOptions ++= Seq("-target", "11", "-source", "11")
 Jetty / javaOptions += "-Dlogback.configurationFile=/logback-dev.xml"
 
