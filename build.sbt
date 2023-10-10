@@ -5,7 +5,7 @@ val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
 val GitBucketVersion = "4.40.0-SNAPSHOT"
 val ScalatraVersion = "3.0.0"
-val JettyVersion = "10.0.16"
+val JettyVersion = "10.0.17"
 val JgitVersion = "6.7.0.202309050840-r"
 
 lazy val root = (project in file("."))
@@ -18,15 +18,6 @@ version := GitBucketVersion
 scalaVersion := "2.13.12"
 
 crossScalaVersions += "3.3.1"
-
-conflictWarning := {
-  if (scalaBinaryVersion.value == "3") {
-    // TODO remove this workaround
-    ConflictWarning("warn", Level.Warn, false)
-  } else {
-    conflictWarning.value
-  }
-}
 
 // scalafmtOnCompile := true
 
@@ -67,7 +58,7 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"                  % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"                % "0.4.20",
   "com.github.zafarkhaja"           % "java-semver"                  % "0.9.0",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "11.1",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"              % "11.2",
   "org.eclipse.jetty"               % "jetty-webapp"                 % JettyVersion % "provided",
   "javax.servlet"                   % "javax.servlet-api"            % "3.1.0" % "provided",
   "junit"                           % "junit"                        % "4.13.2" % "test",
@@ -81,15 +72,6 @@ libraryDependencies ++= Seq(
   "org.ec4j.core"                   % "ec4j-core"                    % "0.3.0",
   "org.kohsuke"                     % "github-api"                   % "1.316" % "test"
 )
-
-libraryDependencies ~= {
-  _.map {
-    case x if x.name == "twirl-api" =>
-      x cross CrossVersion.for3Use2_13
-    case x =>
-      x
-  }
-}
 
 // Compiler settings
 scalacOptions := Seq(
