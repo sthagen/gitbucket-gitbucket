@@ -43,7 +43,7 @@ libraryDependencies ++= Seq(
   "org.apache.commons"              % "commons-email"                % "1.5",
   "commons-net"                     % "commons-net"                  % "3.10.0",
   "org.apache.httpcomponents"       % "httpclient"                   % "4.5.14",
-  "org.apache.sshd"                 % "apache-sshd"                  % "2.10.0" exclude ("org.slf4j", "slf4j-jdk14") exclude ("org.apache.sshd", "sshd-mina") exclude ("org.apache.sshd", "sshd-netty"),
+  "org.apache.sshd"                 % "apache-sshd"                  % "2.11.0" exclude ("org.slf4j", "slf4j-jdk14") exclude ("org.apache.sshd", "sshd-mina") exclude ("org.apache.sshd", "sshd-netty"),
   "org.apache.tika"                 % "tika-core"                    % "2.9.0",
   "com.github.takezoe"              %% "blocking-slick"              % "0.0.14",
   "com.novell.ldap"                 % "jldap"                        % "2009-10-07",
@@ -70,7 +70,7 @@ libraryDependencies ++= Seq(
   "net.i2p.crypto"                  % "eddsa"                        % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"                 % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                    % "0.3.0",
-  "org.kohsuke"                     % "github-api"                   % "1.316" % "test"
+  "org.kohsuke"                     % "github-api"                   % "1.317" % "test"
 )
 
 // Compiler settings
