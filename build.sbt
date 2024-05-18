@@ -3,7 +3,7 @@ import com.jsuereth.sbtpgp.PgpKeys._
 
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
-val GitBucketVersion = "4.40.0"
+val GitBucketVersion = "4.41.0"
 val ScalatraVersion = "3.0.0"
 val JettyVersion = "10.0.21"
 val JgitVersion = "6.9.0.202403050737-r"
@@ -29,9 +29,9 @@ libraryDependencies ++= Seq(
   "org.scalatra"             %% "scalatra-javax"               % ScalatraVersion,
   "org.scalatra"             %% "scalatra-json-javax"          % ScalatraVersion,
   "org.scalatra"             %% "scalatra-forms-javax"         % ScalatraVersion,
-  "org.json4s"               %% "json4s-jackson"               % "4.0.7",
+  "org.json4s"               %% "json4s-jackson"               % "4.1.0-M5",
   "commons-io"                % "commons-io"                   % "2.16.1",
-  "io.github.gitbucket"       % "solidbase"                    % "1.0.5",
+  "io.github.gitbucket"       % "solidbase"                    % "1.1.0",
   "io.github.gitbucket"       % "markedj"                      % "1.0.20",
   "org.apache.commons"        % "commons-compress"             % "1.26.1",
   "org.apache.commons"        % "commons-email"                % "1.6.0",
@@ -42,7 +42,7 @@ libraryDependencies ++= Seq(
   "com.github.takezoe"             %% "blocking-slick"           % "0.0.14",
   "com.novell.ldap"                 % "jldap"                    % "2009-10-07",
   "com.h2database"                  % "h2"                       % "1.4.199",
-  "org.mariadb.jdbc"                % "mariadb-java-client"      % "2.7.6",
+  "org.mariadb.jdbc"                % "mariadb-java-client"      % "2.7.12",
   "org.postgresql"                  % "postgresql"               % "42.7.3",
   "ch.qos.logback"                  % "logback-classic"          % "1.5.6",
   "com.zaxxer"                      % "HikariCP"                 % "5.1.0" exclude ("org.slf4j", "slf4j-api"),

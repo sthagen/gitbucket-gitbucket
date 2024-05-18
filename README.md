@@ -59,14 +59,15 @@ Support
 - If you can't find same question and report, send it to our [Gitter room](https://gitter.im/gitbucket/gitbucket) before raising an issue.
 - The highest priority of GitBucket is the ease of installation and API compatibility with GitHub, so your feature request might be rejected if they go against those principles.
 
-What's New in 4.40.x
+What's New in 4.41.x
 -------------
-## 4.40.0 - 22 Oct 2023
-- Configurable default branch name
-- Support custom fields of issues and pull requests in search condition
-- Create pull request from default branch of forked repositories
-- News feed shows activities of all visible repositories
-- Drop Java 8 support
-- Improve git push performance
+## 4.41.0 - 18 May 2024
+- Simplify pull request UI
+- Keyword search for issues and pull requests
+- New settings for max files and lines limit in showing diff
+- Adjust the default branch automatically when cloning external repository
+- Fix layout of branch selector
+- Performance improvement for listing branches
+- Upgrade internal libraries
 
 See the [change log](CHANGELOG.md) for all of the updates.

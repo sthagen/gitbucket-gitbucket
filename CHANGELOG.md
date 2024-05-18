@@ -1,6 +1,15 @@
 # Changelog
 All changes to the project will be documented in this file.
 
+## 4.41.0 - 18 May 2024
+- Simplify pull request UI
+- Keyword search for issues and pull requests
+- New settings for max files and lines limit in showing diff
+- Adjust the default branch automatically when cloning external repository
+- Fix layout of branch selector
+- Performance improvement for listing branches
+- Upgrade internal libraries
+
 ## 4.40.0 - 22 Oct 2023
 - Configurable default branch name
 - Support custom fields of issues and pull requests in search condition
