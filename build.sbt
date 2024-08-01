@@ -37,7 +37,7 @@ libraryDependencies ++= Seq(
   "org.apache.commons"        % "commons-email"                % "1.6.0",
   "commons-net"               % "commons-net"                  % "3.11.1",
   "org.apache.httpcomponents" % "httpclient"                   % "4.5.14",
-  "org.apache.sshd"           % "apache-sshd"                  % "2.13.1" exclude ("org.slf4j", "slf4j-jdk14") exclude (
+  "org.apache.sshd"           % "apache-sshd"                  % "2.13.2" exclude ("org.slf4j", "slf4j-jdk14") exclude (
     "org.apache.sshd",
     "sshd-mina"
   ) exclude ("org.apache.sshd", "sshd-netty"),
@@ -62,8 +62,8 @@ libraryDependencies ++= Seq(
   "org.scalatra"                   %% "scalatra-scalatest-javax" % ScalatraVersion % "test",
   "org.mockito"                     % "mockito-core"             % "5.12.0"        % "test",
   "com.dimafeng"                   %% "testcontainers-scala"     % "0.41.4"        % "test",
-  "org.testcontainers"              % "mysql"                    % "1.20.0"        % "test",
-  "org.testcontainers"              % "postgresql"               % "1.20.0"        % "test",
+  "org.testcontainers"              % "mysql"                    % "1.20.1"        % "test",
+  "org.testcontainers"              % "postgresql"               % "1.20.1"        % "test",
   "net.i2p.crypto"                  % "eddsa"                    % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"             % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                % "0.3.0",
