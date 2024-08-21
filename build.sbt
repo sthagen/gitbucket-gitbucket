@@ -5,7 +5,7 @@ val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
 val GitBucketVersion = "4.41.0"
 val ScalatraVersion = "3.1.0"
-val JettyVersion = "10.0.22"
+val JettyVersion = "10.0.23"
 val JgitVersion = "6.10.0.202406032230-r"
 
 lazy val root = (project in file("."))
@@ -34,7 +34,7 @@ libraryDependencies ++= Seq(
   "io.github.gitbucket"       % "solidbase"                    % "1.1.0",
   "io.github.gitbucket"       % "markedj"                      % "1.0.20",
   "org.tukaani"               % "xz"                           % "1.10",
-  "org.apache.commons"        % "commons-compress"             % "1.27.0",
+  "org.apache.commons"        % "commons-compress"             % "1.27.1",
   "org.apache.commons"        % "commons-email"                % "1.6.0",
   "commons-net"               % "commons-net"                  % "3.11.1",
   "org.apache.httpcomponents" % "httpclient"                   % "4.5.14",
@@ -56,7 +56,7 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"              % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"            % "0.4.20",
   "com.github.zafarkhaja"           % "java-semver"              % "0.10.2",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"          % "11.17",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"          % "11.18",
   "org.eclipse.jetty"               % "jetty-webapp"             % JettyVersion    % "provided",
   "javax.servlet"                   % "javax.servlet-api"        % "3.1.0"         % "provided",
   "junit"                           % "junit"                    % "4.13.2"        % "test",
