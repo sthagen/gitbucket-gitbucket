@@ -17,7 +17,7 @@ name := Name
 version := GitBucketVersion
 scalaVersion := "2.13.14"
 
-crossScalaVersions += "3.5.0"
+crossScalaVersions += "3.5.1"
 
 // scalafmtOnCompile := true
 
@@ -30,7 +30,7 @@ libraryDependencies ++= Seq(
   "org.scalatra"             %% "scalatra-json-javax"          % ScalatraVersion,
   "org.scalatra"             %% "scalatra-forms-javax"         % ScalatraVersion,
   "org.json4s"               %% "json4s-jackson"               % "4.1.0-M7",
-  "commons-io"                % "commons-io"                   % "2.16.1",
+  "commons-io"                % "commons-io"                   % "2.17.0",
   "io.github.gitbucket"       % "solidbase"                    % "1.1.0",
   "io.github.gitbucket"       % "markedj"                      % "1.0.20",
   "org.tukaani"               % "xz"                           % "1.10",
@@ -68,7 +68,7 @@ libraryDependencies ++= Seq(
   "net.i2p.crypto"                  % "eddsa"                    % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"             % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                % "0.3.0",
-  "org.kohsuke"                     % "github-api"               % "1.325"         % "test"
+  "org.kohsuke"                     % "github-api"               % "1.326"         % "test"
 )
 
 // Compiler settings
