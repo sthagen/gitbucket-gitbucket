@@ -48,7 +48,7 @@ libraryDependencies ++= Seq(
   "com.h2database"                  % "h2"                       % "1.4.199",
   "org.mariadb.jdbc"                % "mariadb-java-client"      % "2.7.12",
   "org.postgresql"                  % "postgresql"               % "42.7.4",
-  "ch.qos.logback"                  % "logback-classic"          % "1.5.9",
+  "ch.qos.logback"                  % "logback-classic"          % "1.5.10",
   "com.zaxxer"                      % "HikariCP"                 % "6.0.0" exclude ("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                   % "1.4.3",
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"              % "1.1.0",
@@ -67,7 +67,7 @@ libraryDependencies ++= Seq(
   "org.testcontainers"              % "postgresql"               % "1.20.2"        % "test",
   "net.i2p.crypto"                  % "eddsa"                    % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"             % "1.11.0",
-  "org.ec4j.core"                   % "ec4j-core"                % "1.0.0",
+  "org.ec4j.core"                   % "ec4j-core"                % "1.1.0",
   "org.kohsuke"                     % "github-api"               % "1.326"         % "test"
 )
 
