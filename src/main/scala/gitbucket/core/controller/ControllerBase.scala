@@ -4,15 +4,15 @@ import java.io.{File, FileInputStream, FileOutputStream}
 import gitbucket.core.api.{ApiError, JsonFormat}
 import gitbucket.core.model.Account
 import gitbucket.core.service.{AccountService, RepositoryService, SystemSettingsService}
-import gitbucket.core.util.SyntaxSugars._
-import gitbucket.core.util.Directory._
-import gitbucket.core.util.Implicits._
-import gitbucket.core.util._
-import org.json4s._
-import org.scalatra._
-import org.scalatra.i18n._
-import org.scalatra.json._
-import org.scalatra.forms._
+import gitbucket.core.util.SyntaxSugars.*
+import gitbucket.core.util.Directory.*
+import gitbucket.core.util.Implicits.*
+import gitbucket.core.util.*
+import org.json4s.*
+import org.scalatra.{MultiParams, *}
+import org.scalatra.i18n.*
+import org.scalatra.json.*
+import org.scalatra.forms.*
 
 import javax.servlet.http.{HttpServletRequest, HttpServletResponse}
 import javax.servlet.{FilterChain, ServletRequest, ServletResponse}
@@ -24,7 +24,7 @@ import net.coobird.thumbnailator.Thumbnails
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.lib.ObjectId
 import org.eclipse.jgit.revwalk.RevCommit
-import org.eclipse.jgit.treewalk._
+import org.eclipse.jgit.treewalk.*
 import org.apache.commons.io.IOUtils
 import org.slf4j.LoggerFactory
 import org.json4s.Formats
@@ -48,9 +48,19 @@ abstract class ControllerBase
 
   implicit val jsonFormats: Formats = gitbucket.core.api.JsonFormat.jsonFormats
 
+  private case class HttpException(status: Int) extends RuntimeException
+
   before("/api/v3/*") {
     contentType = formats("json")
     request.setAttribute(Keys.Request.APIv3, true)
+  }
+
+  override def multiParams(implicit request: HttpServletRequest): MultiParams = {
+    try {
+      super.multiParams
+    } catch {
+      case _: Exception => throw HttpException(400)
+    }
   }
 
   override def requestPath(uri: String, idx: Int): String = {
@@ -86,11 +96,10 @@ abstract class ControllerBase
    */
   implicit def context: Context = {
     contextCache.get match {
-      case null => {
+      case null =>
         val context = Context(loadSystemSettings(), LoginAccount, request)
         contextCache.set(context)
         context
-      }
       case context => context
     }
   }
@@ -130,7 +139,7 @@ abstract class ControllerBase
       action(form)
     }
 
-  protected def NotFound() =
+  protected def NotFound(): ActionResult =
     if (request.hasAttribute(Keys.Request.Ajax)) {
       org.scalatra.NotFound()
     } else if (request.hasAttribute(Keys.Request.APIv3)) {
@@ -150,7 +159,7 @@ abstract class ControllerBase
     }
   }
 
-  protected def Unauthorized()(implicit context: Context) =
+  protected def Unauthorized()(implicit context: Context): ActionResult =
     if (request.hasAttribute(Keys.Request.Ajax)) {
       org.scalatra.Unauthorized()
     } else if (request.hasAttribute(Keys.Request.APIv3)) {
@@ -178,7 +187,9 @@ abstract class ControllerBase
     }
 
   error {
-    case e => {
+    case e: HttpException =>
+      ActionResult(e.status, (), Map.empty)
+    case e =>
       logger.error(s"Catch unhandled error in request: ${request}", e)
       if (request.hasAttribute(Keys.Request.Ajax)) {
         org.scalatra.InternalServerError()
@@ -188,7 +199,6 @@ abstract class ControllerBase
       } else {
         org.scalatra.InternalServerError(gitbucket.core.html.error("Internal Server Error", Some(e)))
       }
-    }
   }
 
   override def url(
@@ -200,7 +210,7 @@ abstract class ControllerBase
     withSessionId: Boolean = true
   )(implicit request: HttpServletRequest, response: HttpServletResponse): String =
     if (path.startsWith("http")) path
-    else baseUrl + super.url(path, params, false, false, false)
+    else baseUrl + super.url(path, params, includeContextPath = false, includeServletPath = false, absolutize = false)
 
   /**
    * Extends scalatra-form's trim rule to eliminate CR and LF.
@@ -244,9 +254,9 @@ abstract class ControllerBase
   protected def getPathObjectId(git: Git, path: String, revCommit: RevCommit): Option[ObjectId] = {
     @scala.annotation.tailrec
     def _getPathObjectId(path: String, walk: TreeWalk): Option[ObjectId] = walk.next match {
-      case true if (walk.getPathString == path) => Some(walk.getObjectId(0))
-      case true                                 => _getPathObjectId(path, walk)
-      case false                                => None
+      case true if walk.getPathString == path => Some(walk.getObjectId(0))
+      case true                               => _getPathObjectId(path, walk)
+      case false                              => None
     }
 
     Using.resource(new TreeWalk(git.getRepository)) { treeWalk =>
@@ -338,18 +348,18 @@ case class Context(
   loginAccount: Option[Account],
   request: HttpServletRequest
 ) {
-  val path = settings.baseUrl.getOrElse(request.getContextPath)
-  val currentPath = request.getRequestURI.substring(request.getContextPath.length)
-  val baseUrl = settings.baseUrl(request)
-  val host = new java.net.URL(baseUrl).getHost
-  val platform = request.getHeader("User-Agent") match {
+  val path: String = settings.baseUrl.getOrElse(request.getContextPath)
+  val currentPath: String = request.getRequestURI.substring(request.getContextPath.length)
+  val baseUrl: String = settings.baseUrl(request)
+  val host: String = new java.net.URL(baseUrl).getHost
+  val platform: String = request.getHeader("User-Agent") match {
     case null                             => null
     case agent if agent.contains("Mac")   => "mac"
     case agent if agent.contains("Linux") => "linux"
     case agent if agent.contains("Win")   => "windows"
     case _                                => null
   }
-  val sidebarCollapse = request.getSession.getAttribute("sidebar-collapse") != null
+  val sidebarCollapse: Boolean = request.getSession.getAttribute("sidebar-collapse") != null
 
   def withLoginAccount(f: Account => Any): Any = {
     loginAccount match {
@@ -430,9 +440,9 @@ trait AccountManagementControllerBase extends ControllerBase {
       ) {
         Some("These mail addresses are duplicated.")
       } else {
-        getAccountByMailAddress(value, true)
+        getAccountByMailAddress(value, includeRemoved = true)
           .collect {
-            case x if paramName.isEmpty || Some(x.userName) != params.optionValue(paramName) =>
+            case x if paramName.isEmpty || !params.optionValue(paramName).contains(x.userName) =>
               "Mail address is already registered."
           }
       }
@@ -448,22 +458,22 @@ trait AccountManagementControllerBase extends ControllerBase {
     ): Option[String] = {
       val extraMailAddresses = params.view.filterKeys(k => k.startsWith("extraMailAddresses"))
       if (
-        Some(value) == params.optionValue("mailAddress") || extraMailAddresses.count { case (k, v) =>
+        params.optionValue("mailAddress").contains(value) || extraMailAddresses.count { case (k, v) =>
           v.contains(value)
         } > 1
       ) {
         Some("These mail addresses are duplicated.")
       } else {
-        getAccountByMailAddress(value, true)
+        getAccountByMailAddress(value, includeRemoved = true)
           .collect {
-            case x if paramName.isEmpty || Some(x.userName) != params.optionValue(paramName) =>
+            case x if paramName.isEmpty || !params.optionValue(paramName).contains(x.userName) =>
               "Mail address is already registered."
           }
       }
     }
   }
 
-  val allReservedNames = Set(
+  private val allReservedNames = Set(
     "git",
     "admin",
     "upload",
@@ -482,10 +492,9 @@ trait AccountManagementControllerBase extends ControllerBase {
   protected def reservedNames: Constraint = new Constraint() {
     override def validate(name: String, value: String, messages: Messages): Option[String] =
       if (allReservedNames.contains(value.toLowerCase)) {
-        Some(s"${value} is reserved")
+        Some(s"$value is reserved")
       } else {
         None
       }
   }
-
 }
