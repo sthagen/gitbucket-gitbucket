@@ -59,15 +59,12 @@ Support
 - If you can't find same question and report, send it to our [Gitter room](https://gitter.im/gitbucket/gitbucket) before raising an issue.
 - The highest priority of GitBucket is the ease of installation and API compatibility with GitHub, so your feature request might be rejected if they go against those principles.
 
-What's New in 4.41.x
+What's New in 4.42.x
 -------------
-## 4.41.0 - 18 May 2024
-- Simplify pull request UI
-- Keyword search for issues and pull requests
-- New settings for max files and lines limit in showing diff
-- Adjust the default branch automatically when cloning external repository
-- Fix layout of branch selector
-- Performance improvement for listing branches
-- Upgrade internal libraries
+## 4.42.0 - 30 Dec 2024
+- Increase max branch name length 100 -> 255
+- Fix some GitHub incompatible Web APIs
+- Apply user-defined CSS after all plugins
+- Improve performance of listing commit logs
 
 See the [change log](CHANGELOG.md) for all of the updates.
