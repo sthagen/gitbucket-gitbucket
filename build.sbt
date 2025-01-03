@@ -1,4 +1,3 @@
-import sbtlicensereport.license.{DepModuleInfo, LicenseInfo}
 import com.jsuereth.sbtpgp.PgpKeys._
 
 val Organization = "io.github.gitbucket"
@@ -61,7 +60,7 @@ libraryDependencies ++= Seq(
   "javax.servlet"                   % "javax.servlet-api"        % "3.1.0"         % "provided",
   "junit"                           % "junit"                    % "4.13.2"        % "test",
   "org.scalatra"                   %% "scalatra-scalatest-javax" % ScalatraVersion % "test",
-  "org.mockito"                     % "mockito-core"             % "5.14.2"        % "test",
+  "org.mockito"                     % "mockito-core"             % "5.15.2"        % "test",
   "com.dimafeng"                   %% "testcontainers-scala"     % "0.41.5"        % "test",
   "org.testcontainers"              % "mysql"                    % "1.20.4"        % "test",
   "org.testcontainers"              % "postgresql"               % "1.20.4"        % "test",
