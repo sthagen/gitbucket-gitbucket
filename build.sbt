@@ -2,7 +2,7 @@ import com.jsuereth.sbtpgp.PgpKeys._
 
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
-val GitBucketVersion = "4.42.1"
+val GitBucketVersion = "4.43.0"
 val ScalatraVersion = "3.1.2"
 val JettyVersion = "10.0.25"
 val JgitVersion = "6.10.1.202505221210-r"
@@ -62,8 +62,8 @@ libraryDependencies ++= Seq(
   "org.scalatra"                   %% "scalatra-scalatest-javax" % ScalatraVersion % "test",
   "org.mockito"                     % "mockito-core"             % "5.18.0"        % "test",
   "com.dimafeng"                   %% "testcontainers-scala"     % "0.43.0"        % "test",
-  "org.testcontainers"              % "mysql"                    % "1.21.2"        % "test",
-  "org.testcontainers"              % "postgresql"               % "1.21.2"        % "test",
+  "org.testcontainers"              % "mysql"                    % "1.21.3"        % "test",
+  "org.testcontainers"              % "postgresql"               % "1.21.3"        % "test",
   "net.i2p.crypto"                  % "eddsa"                    % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"             % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                % "1.1.1",
