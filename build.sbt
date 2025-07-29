@@ -16,7 +16,7 @@ name := Name
 version := GitBucketVersion
 scalaVersion := "2.13.16"
 
-crossScalaVersions += "3.7.1"
+crossScalaVersions += "3.7.2"
 
 // scalafmtOnCompile := true
 
@@ -49,7 +49,7 @@ libraryDependencies ++= Seq(
   "org.mariadb.jdbc"                % "mariadb-java-client"      % "2.7.12",
   "org.postgresql"                  % "postgresql"               % "42.7.7",
   "ch.qos.logback"                  % "logback-classic"          % "1.5.18",
-  "com.zaxxer"                      % "HikariCP"                 % "6.3.2" exclude ("org.slf4j", "slf4j-api"),
+  "com.zaxxer"                      % "HikariCP"                 % "7.0.0" exclude ("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                   % "1.4.4",
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"              % "1.1.0",
   "io.github.java-diff-utils"       % "java-diff-utils"          % "4.16",
@@ -68,7 +68,7 @@ libraryDependencies ++= Seq(
   "net.i2p.crypto"                  % "eddsa"                    % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"             % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                % "1.1.1",
-  "org.kohsuke"                     % "github-api"               % "1.327"         % "test"
+  "org.kohsuke"                     % "github-api"               % "1.329"         % "test"
 )
 
 // Compiler settings
