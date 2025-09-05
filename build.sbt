@@ -68,7 +68,7 @@ libraryDependencies ++= Seq(
   "net.i2p.crypto"                  % "eddsa"                    % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"             % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                % "1.1.1",
-  "org.kohsuke"                     % "github-api"               % "1.329"         % "test"
+  "org.kohsuke"                     % "github-api"               % "1.330"         % "test"
 )
 
 // Compiler settings
@@ -192,7 +192,7 @@ executableKey := {
 
   // zip it up
   IO delete (temp / "META-INF" / "MANIFEST.MF")
-  val contentMappings = (temp.allPaths --- PathFinder(temp)).get pair { file =>
+  val contentMappings = (temp.allPaths --- PathFinder(temp)).get() pair { file =>
     IO.relativizeFile(temp, file)
   }
   val manifest = new JarManifest
