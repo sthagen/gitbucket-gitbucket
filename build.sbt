@@ -16,7 +16,7 @@ name := Name
 version := GitBucketVersion
 scalaVersion := "2.13.17"
 
-crossScalaVersions += "3.7.3"
+crossScalaVersions += "3.7.4"
 
 // scalafmtOnCompile := true
 
@@ -29,7 +29,7 @@ libraryDependencies ++= Seq(
   "org.scalatra"             %% "scalatra-json-javax"          % ScalatraVersion,
   "org.scalatra"             %% "scalatra-forms-javax"         % ScalatraVersion,
   "org.json4s"               %% "json4s-jackson"               % "4.1.0-M8",
-  "commons-io"                % "commons-io"                   % "2.20.0",
+  "commons-io"                % "commons-io"                   % "2.21.0",
   "io.github.gitbucket"       % "solidbase"                    % "1.1.0",
   "io.github.gitbucket"       % "markedj"                      % "1.0.20",
   "org.tukaani"               % "xz"                           % "1.10",
@@ -56,7 +56,7 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"               % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"             % "0.4.21",
   "com.github.zafarkhaja"           % "java-semver"               % "0.10.2",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"           % "11.30",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"           % "11.30.1",
   "org.eclipse.jetty"               % "jetty-webapp"              % JettyVersion    % "provided",
   "javax.servlet"                   % "javax.servlet-api"         % "3.1.0"         % "provided",
   "junit"                           % "junit"                     % "4.13.2"        % "test",
