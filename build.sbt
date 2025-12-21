@@ -46,9 +46,9 @@ libraryDependencies ++= Seq(
   "com.github.takezoe"             %% "blocking-slick"            % "0.0.14",
   "com.novell.ldap"                 % "jldap"                     % "2009-10-07",
   "com.h2database"                  % "h2"                        % "2.4.240",
-  "org.mariadb.jdbc"                % "mariadb-java-client"       % "2.7.12",
+  "org.mariadb.jdbc"                % "mariadb-java-client"       % "2.7.13",
   "org.postgresql"                  % "postgresql"                % "42.7.8",
-  "ch.qos.logback"                  % "logback-classic"           % "1.5.21",
+  "ch.qos.logback"                  % "logback-classic"           % "1.5.22",
   "com.zaxxer"                      % "HikariCP"                  % "7.0.2" exclude ("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                    % "1.4.5",
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"               % "1.1.0",
@@ -61,12 +61,12 @@ libraryDependencies ++= Seq(
   "javax.servlet"                   % "javax.servlet-api"         % "3.1.0"         % "provided",
   "junit"                           % "junit"                     % "4.13.2"        % "test",
   "org.scalatra"                   %% "scalatra-scalatest-javax"  % ScalatraVersion % "test",
-  "org.mockito"                     % "mockito-core"              % "5.20.0"        % "test",
-  "org.testcontainers"              % "testcontainers-mysql"      % "2.0.2"         % "test",
-  "org.testcontainers"              % "testcontainers-postgresql" % "2.0.2"         % "test",
+  "org.mockito"                     % "mockito-core"              % "5.21.0"        % "test",
+  "org.testcontainers"              % "testcontainers-mysql"      % "2.0.3"         % "test",
+  "org.testcontainers"              % "testcontainers-postgresql" % "2.0.3"         % "test",
   "net.i2p.crypto"                  % "eddsa"                     % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"              % "1.11.0",
-  "org.ec4j.core"                   % "ec4j-core"                 % "1.1.1",
+  "org.ec4j.core"                   % "ec4j-core"                 % "1.2.0",
   "org.kohsuke"                     % "github-api"                % "1.330"         % "test"
 )
 
