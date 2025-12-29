@@ -23,8 +23,7 @@ import org.apache.commons.compress.archivers.zip.{ZipArchiveEntry, ZipArchiveOut
 import org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream
 import org.apache.commons.compress.compressors.xz.XZCompressorOutputStream
-import org.apache.commons.compress.utils.IOUtils
-import org.apache.commons.io.FileUtils
+import org.apache.commons.io.{FileUtils, IOUtils}
 import org.scalatra.forms.*
 import org.eclipse.jgit.api.{ArchiveCommand, Git}
 import org.eclipse.jgit.archive.{TgzFormat, ZipFormat}
@@ -35,7 +34,7 @@ import org.eclipse.jgit.treewalk.TreeWalk.OperationType
 import org.eclipse.jgit.treewalk.filter.PathFilter
 import org.eclipse.jgit.util.io.EolStreamTypeUtil
 import org.json4s.jackson.Serialization
-import org.scalatra._
+import org.scalatra.*
 import org.scalatra.i18n.Messages
 
 class RepositoryViewerController
@@ -174,7 +173,7 @@ trait RepositoryViewerControllerBase extends ControllerBase {
     filename match {
       case Some(f) =>
         helpers.renderMarkup(
-          filePath = List(f),
+          filePath = f.split("/").toList,
           fileContent = params("content"),
           branch = repository.repository.defaultBranch,
           repository = repository,
