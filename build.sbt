@@ -42,7 +42,7 @@ libraryDependencies ++= Seq(
     "sshd-mina"
   ) exclude ("org.apache.sshd", "sshd-netty")
     exclude ("org.apache.sshd", "sshd-spring-sftp"),
-  "org.apache.tika"                 % "tika-core"                 % "3.2.3",
+  "org.apache.tika"                 % "tika-core"                 % "3.3.0",
   "com.github.takezoe"             %% "blocking-slick"            % "0.0.14",
   "com.novell.ldap"                 % "jldap"                     % "2009-10-07",
   "com.h2database"                  % "h2"                        % "2.4.240",
@@ -57,7 +57,7 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-core"              % "2.6.1.Final",
   "net.coobird"                     % "thumbnailator"             % "0.4.21",
   "com.github.zafarkhaja"           % "java-semver"               % "0.10.2",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"           % "11.34",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"           % "11.35",
   "org.eclipse.jetty"               % "jetty-webapp"              % JettyVersion    % "provided",
   "javax.servlet"                   % "javax.servlet-api"         % "3.1.0"         % "provided",
   "junit"                           % "junit"                     % "4.13.2"        % "test",
