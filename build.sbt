@@ -37,7 +37,7 @@ libraryDependencies ++= Seq(
   "org.apache.commons"        % "commons-email"                % "1.6.0",
   "commons-net"               % "commons-net"                  % "3.13.0",
   "org.apache.httpcomponents" % "httpclient"                   % "4.5.14",
-  "org.apache.sshd"           % "apache-sshd"                  % "2.17.1" exclude ("org.slf4j", "slf4j-jdk14") exclude (
+  "org.apache.sshd"           % "apache-sshd"                  % "2.18.0" exclude ("org.slf4j", "slf4j-jdk14") exclude (
     "org.apache.sshd",
     "sshd-mina"
   ) exclude ("org.apache.sshd", "sshd-netty")
@@ -48,7 +48,7 @@ libraryDependencies ++= Seq(
   "com.h2database"                  % "h2"                        % "2.4.240",
   "org.mariadb.jdbc"                % "mariadb-java-client"       % "2.7.13",
   "org.postgresql"                  % "postgresql"                % "42.7.11",
-  "ch.qos.logback"                  % "logback-classic"           % "1.5.32",
+  "ch.qos.logback"                  % "logback-classic"           % "1.5.33",
   "com.zaxxer"                      % "HikariCP"                  % "7.0.2" exclude ("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                    % "1.4.8",
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"               % "1.1.0",
