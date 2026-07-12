@@ -3,7 +3,7 @@ import com.jsuereth.sbtpgp.PgpKeys._
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
 val GitBucketVersion = "4.46.1"
-val ScalatraVersion = "3.1.2"
+val ScalatraVersion = "3.2.0"
 val JettyVersion = "10.0.26"
 val JgitVersion = "6.10.1.202505221210-r"
 
@@ -37,7 +37,7 @@ libraryDependencies ++= Seq(
   "org.apache.commons"        % "commons-email"                % "1.6.0",
   "commons-net"               % "commons-net"                  % "3.13.0",
   "org.apache.httpcomponents" % "httpclient"                   % "4.5.14",
-  "org.apache.sshd"           % "apache-sshd"                  % "2.18.0" exclude ("org.slf4j", "slf4j-jdk14") exclude (
+  "org.apache.sshd"           % "apache-sshd"                  % "2.19.0" exclude ("org.slf4j", "slf4j-jdk14") exclude (
     "org.apache.sshd",
     "sshd-mina"
   ) exclude ("org.apache.sshd", "sshd-netty")
@@ -47,8 +47,8 @@ libraryDependencies ++= Seq(
   "com.novell.ldap"                 % "jldap"                     % "2009-10-07",
   "com.h2database"                  % "h2"                        % "2.4.240",
   "org.mariadb.jdbc"                % "mariadb-java-client"       % "2.7.14",
-  "org.postgresql"                  % "postgresql"                % "42.7.11",
-  "ch.qos.logback"                  % "logback-classic"           % "1.5.37",
+  "org.postgresql"                  % "postgresql"                % "42.7.13",
+  "ch.qos.logback"                  % "logback-classic"           % "1.5.38",
   ("com.zaxxer"                     % "HikariCP"                  % "7.1.0").exclude("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                    % "1.4.9",
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"               % "1.1.0",
@@ -57,7 +57,7 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-core"              % "2.6.1.Final",
   "net.coobird"                     % "thumbnailator"             % "0.4.21",
   "com.github.zafarkhaja"           % "java-semver"               % "0.10.2",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"           % "11.37.2",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"           % "11.38.1",
   "org.eclipse.jetty"               % "jetty-webapp"              % JettyVersion    % "provided",
   "javax.servlet"                   % "javax.servlet-api"         % "3.1.0"         % "provided",
   "junit"                           % "junit"                     % "4.13.2"        % "test",

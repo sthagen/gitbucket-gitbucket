@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - name: Cache
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       env:
         cache-name: cache-sbt-libs
       with:
@@ -26,7 +26,7 @@ jobs:
       uses: actions/setup-java@v5
       with:
         java-version: ${{ matrix.java }}
-        distribution: adopt
+        distribution: temurin
     - name: Make sbt wrapper executable
       run: chmod +x ./sbt
     - name: Run tests
