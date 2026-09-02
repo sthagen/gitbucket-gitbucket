@@ -3,7 +3,7 @@ import com.jsuereth.sbtpgp.PgpKeys._
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
 val GitBucketVersion = "4.48.0"
-val ScalatraVersion = "3.2.0"
+val ScalatraVersion = "3.2.1"
 val JettyVersion = "10.0.26"
 val JgitVersion = "6.10.1.202505221210-r"
 
@@ -42,13 +42,13 @@ libraryDependencies ++= Seq(
     "sshd-mina"
   ) exclude ("org.apache.sshd", "sshd-netty")
     exclude ("org.apache.sshd", "sshd-spring-sftp"),
-  "org.apache.tika"                 % "tika-core"                 % "3.3.2",
+  "org.apache.tika"                 % "tika-core"                 % "4.0.0",
   "com.github.takezoe"             %% "blocking-slick"            % "0.0.14",
   "com.novell.ldap"                 % "jldap"                     % "2009-10-07",
   "com.h2database"                  % "h2"                        % "2.4.240",
   "org.mariadb.jdbc"                % "mariadb-java-client"       % "2.7.15",
   "org.postgresql"                  % "postgresql"                % "42.7.13",
-  "ch.qos.logback"                  % "logback-classic"           % "1.6.2",
+  "ch.qos.logback"                  % "logback-classic"           % "1.6.3",
   ("com.zaxxer"                     % "HikariCP"                  % "7.1.0").exclude("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                    % "1.4.9",
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"               % "1.1.0",
