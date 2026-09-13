@@ -16,7 +16,7 @@ name := Name
 version := GitBucketVersion
 scalaVersion := "2.13.18"
 
-crossScalaVersions += "3.8.4"
+crossScalaVersions += "3.9.0"
 
 // scalafmtOnCompile := true
 
@@ -45,7 +45,7 @@ libraryDependencies ++= Seq(
   "org.apache.tika"                 % "tika-core"                 % "4.0.0",
   "com.github.takezoe"             %% "blocking-slick"            % "0.0.14",
   "com.novell.ldap"                 % "jldap"                     % "2009-10-07",
-  "com.h2database"                  % "h2"                        % "2.4.240",
+  "com.h2database"                  % "h2"                        % "2.5.250",
   "org.mariadb.jdbc"                % "mariadb-java-client"       % "2.7.15",
   "org.postgresql"                  % "postgresql"                % "42.7.13",
   "ch.qos.logback"                  % "logback-classic"           % "1.6.3",
