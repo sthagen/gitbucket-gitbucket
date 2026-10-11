@@ -63,7 +63,7 @@ class GitRepositoryServlet extends GitServlet with SystemSettingsService {
 
   override def service(req: HttpServletRequest, res: HttpServletResponse): Unit = {
     val agent = req.getHeader("USER-AGENT")
-    val index = req.getRequestURI.indexOf(".git")
+    val index = req.getRequestURI.lastIndexOf(".git")
     if (index >= 0 && (agent == null || agent.toLowerCase.indexOf("git") < 0)) {
       // redirect for browsers
       val paths = req.getRequestURI.substring(0, index).split("/")
@@ -104,7 +104,7 @@ class GitRepositoryServlet extends GitServlet with SystemSettingsService {
         throw new IllegalStateException("lfs.server_url is not configured.")
       }
       case Some(baseUrl) => {
-        val index = req.getRequestURI.indexOf(".git")
+        val index = req.getRequestURI.lastIndexOf(".git")
         if (index >= 0) {
           req.getRequestURI.substring(0, index).split("/").reverse match {
             case Array(repository, owner, _*) =>
@@ -508,17 +508,17 @@ class WikiCommitHook(owner: String, repository: String, pusher: String, baseUrl:
                     val fileName = diff.newPath
                     updateLastActivityDate(owner, repository)
                     buildWikiRecord(action, owner, repository, commit, fileName).foreach(recordActivity)
-                    (action, fileName, commit.id)
+                    (action, fileName.dropRight(".md".length), commit.id)
                 }
               }
             }
 
             val pages = commits
-              .groupBy { case (_, fileName, _) => fileName }
-              .map { case (fileName, commits) =>
+              .groupBy { case (_, pageName, _) => pageName }
+              .map { case (pageName, commits) =>
                 val (commitHeadAction, _, _) = commits.head
                 val (_, _, commitLastId) = commits.last
-                (commitHeadAction, fileName, commitLastId)
+                (commitHeadAction, pageName, commitLastId)
               }
 
             callWebHookOf(owner, repository, WebHook.Gollum, settings) {

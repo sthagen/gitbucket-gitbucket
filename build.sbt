@@ -37,18 +37,18 @@ libraryDependencies ++= Seq(
   "org.apache.commons"        % "commons-email"                % "1.6.0",
   "commons-net"               % "commons-net"                  % "3.13.0",
   "org.apache.httpcomponents" % "httpclient"                   % "4.5.14",
-  "org.apache.sshd"           % "apache-sshd"                  % "2.19.0" exclude ("org.slf4j", "slf4j-jdk14") exclude (
+  "org.apache.sshd"           % "apache-sshd"                  % "2.20.0" exclude ("org.slf4j", "slf4j-jdk14") exclude (
     "org.apache.sshd",
     "sshd-mina"
   ) exclude ("org.apache.sshd", "sshd-netty")
     exclude ("org.apache.sshd", "sshd-spring-sftp"),
-  "org.apache.tika"                 % "tika-core"                 % "4.0.0",
+  "org.apache.tika"                 % "tika-core"                 % "4.1.0",
   "com.github.takezoe"             %% "blocking-slick"            % "0.0.14",
   "com.novell.ldap"                 % "jldap"                     % "2009-10-07",
-  "com.h2database"                  % "h2"                        % "2.5.250",
+  "com.h2database"                  % "h2"                        % "2.5.252",
   "org.mariadb.jdbc"                % "mariadb-java-client"       % "2.7.15",
-  "org.postgresql"                  % "postgresql"                % "42.7.13",
-  "ch.qos.logback"                  % "logback-classic"           % "1.6.3",
+  "org.postgresql"                  % "postgresql"                % "42.7.14",
+  "ch.qos.logback"                  % "logback-classic"           % "1.6.5",
   ("com.zaxxer"                     % "HikariCP"                  % "7.1.0").exclude("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                    % "1.4.9",
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"               % "1.1.0",
@@ -62,7 +62,7 @@ libraryDependencies ++= Seq(
   "javax.servlet"                   % "javax.servlet-api"         % "3.1.0"         % "provided",
   "junit"                           % "junit"                     % "4.13.2"        % "test",
   "org.scalatra"                   %% "scalatra-scalatest-javax"  % ScalatraVersion % "test",
-  "org.mockito"                     % "mockito-core"              % "5.23.0"        % "test",
+  "org.mockito"                     % "mockito-core"              % "5.24.0"        % "test",
   "org.testcontainers"              % "testcontainers-mysql"      % "2.0.5"         % "test",
   "org.testcontainers"              % "testcontainers-postgresql" % "2.0.5"         % "test",
   "net.i2p.crypto"                  % "eddsa"                     % "0.3.0",
